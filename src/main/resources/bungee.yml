@@ -1,0 +1,4 @@
+name: BungeePlayerSync
+version: 1.0
+main: me.leon.bungee.BungeePlayerSync
+author: Leon

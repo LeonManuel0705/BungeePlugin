@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="BungeePlugin:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/BungeePlugin_jar</output-path>
+    <root id="archive" name="BungeePlugin.jar">
+      <element id="module-output" name="BungeePlugin" />
+    </root>
+  </artifact>
+</component>

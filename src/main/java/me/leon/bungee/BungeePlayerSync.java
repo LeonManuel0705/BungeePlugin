@@ -32,14 +32,12 @@ public class BungeePlayerSync extends Plugin implements Listener {
         String subchannel = in.readUTF();
 
         if (subchannel.equals("PlayerList")) {
-            String request = in.readUTF(); // "ALL"
+            String request = in.readUTF();
 
             if (request.equals("ALL")) {
-                // Sende Spielerliste von allen Servern zurück
                 if (event.getSender() instanceof Server) {
                     Server server = (Server) event.getSender();
 
-                    // Sammle alle Spieler vom Netzwerk
                     Map<String, List<String>> serverPlayers = new HashMap<>();
 
                     for (net.md_5.bungee.api.config.ServerInfo serverInfo : getProxy().getServers().values()) {
@@ -52,12 +50,11 @@ public class BungeePlayerSync extends Plugin implements Listener {
                         }
                     }
 
-                    // Sende Antwort zurück an den anfragenden Server
                     for (Map.Entry<String, List<String>> entry : serverPlayers.entrySet()) {
                         ByteArrayDataOutput out = ByteStreams.newDataOutput();
                         out.writeUTF("PlayerList");
-                        out.writeUTF(entry.getKey()); // Server-Name
-                        out.writeUTF(String.join(", ", entry.getValue())); // Spielerliste
+                        out.writeUTF(entry.getKey());
+                        out.writeUTF(String.join(", ", entry.getValue()));
 
                         server.sendData("BungeeCord", out.toByteArray());
                     }

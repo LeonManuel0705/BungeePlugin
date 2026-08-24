@@ -38,4 +38,7 @@ build/
 ### Mac OS ###
 .DS_Store
 # Project exclude paths
-/out/
+/out/.idea/
+target/
+*.iml
+.DS_Store
